@@ -10,7 +10,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: harvester
+      app: harvester
   strategy:
     type: Recreate
   template:
