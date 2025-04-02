@@ -19,6 +19,8 @@ spec:
       labels:
         app: harvester
     spec:
+      imagePullSecrets:
+        - name: ecr-local
       containers:
         - env:
             - name: GRPC_PYTHON_BUILD_SYSTEM_OPENSSL
