@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: harvester
+  namespace: pipelines
+  annotations:
+    traefik.ingress.kubernetes.io/service.serversscheme: h2c
+spec:
+  type: ClusterIP
+  ports:
+  - name: grpc
+    port: 80
+    targetPort: 50051
+  selector:
+    app: harvester
