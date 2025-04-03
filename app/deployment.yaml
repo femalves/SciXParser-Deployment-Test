@@ -3,21 +3,21 @@ kind: Deployment
 metadata:
   annotations:
   labels:
-    app: harvester
+    app: parser
   namespace: pipelines
-  name: harvester
+  name: parser
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: harvester
+      app: parser
   strategy:
     type: Recreate
   template:
     metadata:
       annotations:
       labels:
-        app: harvester
+        app: parser
     spec:
       imagePullSecrets:
         - name: ecr-local
@@ -27,9 +27,9 @@ spec:
               value: "1"
             - name: GRPC_PYTHON_BUILD_SYSTEM_ZLIB
               value: "1"
-          image: 084981688622.dkr.ecr.us-east-1.amazonaws.com/honeycomb:scix-harvester-pipeline-v0.0.2
+          image: 084981688622.dkr.ecr.us-east-1.amazonaws.com/honeycomb:scix-parser-pipeline-v0.0.1
           imagePullPolicy: Always
-          name: harvester
+          name: parser
           resources: 
             requests:
               memory: "1000Mi"
